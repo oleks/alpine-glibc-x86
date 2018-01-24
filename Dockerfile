@@ -10,7 +10,7 @@ RUN apk add --update --no-cache wget tar xz && \
     tar xf glibc.pkg.tar.xz -C glibc && \
     mv tmp/ld.so.conf /etc/ld.so.conf && \
     cp -a glibc/usr /usr/glibc/ && \
-    glibc/usr/bin/ldconfig /usr/glibc/usr /usr/glibc/usr/lib && \
+    ldconfig /usr/glibc/usr /usr/glibc/usr/lib && \
     ln -s /usr/glibc/usr/lib/ld-linux.so.2 /lib/ld-linux.so.2  && \
     rm -Rf glibc glibc.pkg.tar.xz && \
     apk del wget tar xz
