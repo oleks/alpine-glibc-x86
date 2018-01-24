@@ -1,4 +1,8 @@
-FROM alpine:latest
+FROM portoleks/alpine:v3.7_1
+
+MAINTAINER Oleks <oleks@oleks.info>
+
+USER root
 
 ADD ./ld.so.conf ./tmp/ld.so.conf
 
@@ -14,3 +18,5 @@ RUN apk add --update --no-cache wget tar xz && \
     ln -s /usr/glibc/usr/lib/ld-linux.so.2 /lib/ld-linux.so.2  && \
     rm -Rf glibc glibc.pkg.tar.xz && \
     apk del wget tar xz
+
+USER docker
